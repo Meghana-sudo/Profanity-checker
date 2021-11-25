@@ -1,28 +1,20 @@
+import sys
 from better_profanity import profanity
 
+with open(sys.argv[1], 'r') as f:
+    contents = f.read()
 
-def profanity_read():
-    file = open("C:/Users/MEGHANA/Documents/My documents/sample.txt")
-    content = file.read()
     Racial_word = ["white", "black", "racial","caste", "shit", "racism", "bully"]
     profanity.load_censor_words(Racial_word)
-    print(profanity.censor(content))
-    
-    
-    
+    print(profanity.censor(contents))
 
-def profanity_check():
-    file = open("C:/Users/MEGHANA/Documents/My documents/sample.txt")
-    content = file.read()
-    Racial_word = ["white", "black", "racial","caste", "shit", "racism", "bully"]
-    profanity.load_censor_words(Racial_word)
-    print(profanity.censor(content))
-    
+
+def profanity_check():   
     count = 0
     
    
     for i in Racial_word:
-        if i in content:
+        if i in contents:
             count += 1
     return count
 
